@@ -1,0 +1,19 @@
+{
+  "objective": "linear_function_word_problems",
+  "concepts": {
+    "basic_operations":              { "prerequisites": [],                                        "time": 30, "difficulty": 1 },
+    "multiplication_with_decimals":  { "prerequisites": ["basic_operations"],                      "time": 50, "difficulty": 3 },
+    "division":                      { "prerequisites": ["multiplication_with_decimals"],          "time": 45, "difficulty": 3 },
+    "fractions":                     { "prerequisites": ["division"],                              "time": 60, "difficulty": 4 },
+    "number_line":                   { "prerequisites": ["basic_operations"],                      "time": 40, "difficulty": 2 },
+    "cartesian_plane":               { "prerequisites": ["number_line"],                           "time": 50, "difficulty": 3 },
+    "algebraic_language":            { "prerequisites": ["basic_operations"],                      "time": 45, "difficulty": 3 },
+    "linear_equations":              { "prerequisites": ["multiplication_with_decimals", "division", "algebraic_language"], "time": 70, "difficulty": 4 },
+    "equations_with_fractions":      { "prerequisites": ["linear_equations", "fractions"],         "time": 50, "difficulty": 4 },
+    "linear_function_concept":       { "prerequisites": ["linear_equations", "cartesian_plane"],   "time": 60, "difficulty": 3 },
+    "linear_function_graph":         { "prerequisites": ["linear_function_concept"],               "time": 50, "difficulty": 3 },
+    "linear_function_word_problems": { "prerequisites": ["linear_function_graph", "fractions"],    "time": 80, "difficulty": 5 },
+    "exponentiation":                { "prerequisites": ["multiplication_with_decimals"],          "time": 55, "difficulty": 3 },
+    "square_root":                   { "prerequisites": ["exponentiation"],                        "time": 50, "difficulty": 3 }
+  }
+}

@@ -156,6 +156,13 @@ class LearningProblem:
         missing = self.required - set(state)
         return len(missing) * self.min_cost
 
+    def heuristic_tight(self, state):
+        """A tighter admissible heuristic: the sum of the actual costs of
+        the required concepts still missing. Still never overestimates,
+        because the student must pay at least this much to reach the goal."""
+        missing = self.required - set(state)
+        return sum(self.concept_cost(c) for c in missing)
+
 
 def solve(problem, algorithm):
     """Solve the problem with the chosen algorithm.
@@ -168,14 +175,17 @@ def solve(problem, algorithm):
     if algorithm in ("dfs", "bfs"):
         frontier = StackFrontier() if algorithm == "dfs" else QueueFrontier()
         use_priority = False
-    elif algorithm in ("greedy", "astar"):
+    elif algorithm in ("greedy", "astar", "astar_tight"):
         frontier = PriorityFrontier()
         use_priority = True
     else:
         raise ValueError(f"unknown algorithm: {algorithm}")
 
     def priority_of(node):
-        h = problem.heuristic(node.state)
+        if algorithm == "astar_tight":
+            h = problem.heuristic_tight(node.state)
+        else:
+            h = problem.heuristic(node.state)
         if algorithm == "greedy":
             return h                # Greedy Best-First: f(n) = h(n)
         return node.path_cost + h   # A*: f(n) = g(n) + h(n)
