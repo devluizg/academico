@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Output gerado (opcional - você decide se quer versionar)
+# cs50-ai/*/output/*.png
+
+# Sistema
+.DS_Store
+Thumbs.db
