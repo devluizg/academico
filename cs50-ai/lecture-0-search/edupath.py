@@ -1,0 +1,3 @@
+"""
+edupath module
+"""
